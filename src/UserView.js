@@ -9,7 +9,7 @@ export default function UserView() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/user/public/view/${token}`)
+      .get(`http://qr-app-production-9df5.up.railway.app/advice/document/${token}`)
       .then((res) => setInfo(res.data))
       .catch((err) => {
         console.error("Error fetching info:", err);

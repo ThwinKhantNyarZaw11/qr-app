@@ -32,7 +32,7 @@ const SuccessPage = () => {
 
       <div style={{ marginTop: '2rem',}}>
         <button
-          onClick={() => navigate(`/view/${token}`)}
+          onClick={() => navigate(`/advice/document/${token}`)}
           style={{
             backgroundColor: 'white',
             color: '#0057AB',

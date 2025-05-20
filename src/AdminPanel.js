@@ -45,7 +45,7 @@ const AdminPanel = () => {
         validDate: formData.validUntil
       };
 
-      const res = await axios.post('http://localhost:8080/admin', payload, {
+      const res = await axios.post('http://qr-app-production-9df5.up.railway.app/admin', payload, {
         auth: {
           username: 'admin@gmail.com',
           password: 'admin@123'
@@ -53,7 +53,7 @@ const AdminPanel = () => {
       });
 
       const newToken = res.data.data;
-      const fullUrl = `http://localhost:8080/user/public/view/${newToken}`;
+      const fullUrl = `http://qr-app-production-9df5.up.railway.app/advice/document/${newToken}`;
 
       setQrUrl(fullUrl);
       navigate('/success', { state: { formData, qrUrl: fullUrl, token: newToken } });
