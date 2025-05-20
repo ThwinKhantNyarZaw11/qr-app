@@ -60,7 +60,7 @@ const SuccessPage = () => {
       </div>
 </div>
       <div style={{ display: 'none' }}>
-        <QRCode id="qrCodeEl" value={qrUrl} size={180} />
+        <QRCode id="qrCodeEl" value={`https://your-frontend-domain.com/advice/document/${token}`} size={180} />
       </div>
     </div>
     </div>
