@@ -23,8 +23,8 @@ export default function UserView() {
   const data = info.data;
 
   return (
-    <div className="bg-[#0057AB] min-h-screen p-4 font-sans">
-      <div className="bg-white w-[600px] max-w-full mx-auto p-6 rounded-xl shadow-lg">
+    <div className="bg-[#0057AB] min-h-screen overflow-y-auto p-4 font-sans">
+      <div className="bg-white w-[600px] max-w-full mx-auto p-6 rounded-xl shadow-lg min-h-[100vh]">
         <div className="flex justify-between items-center">
           <img src="https://qrscan.kbzbank.co/img/kbzbank.png" alt="KBZ Bank Logo" className="h-10" />
           <h3 className="text-sm font-bold text-right leading-tight">
