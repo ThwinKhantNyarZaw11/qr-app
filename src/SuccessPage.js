@@ -60,7 +60,7 @@ const SuccessPage = () => {
       </div>
 </div>
       <div style={{ display: 'none' }}>
-        <QRCode id="qrCodeEl" value={`https://qr-app-gamma-kohl.vercel.app/advice/document/${token}`} size={180} />
+        <QRCode id="qrCodeEl" value={`https://https://www.qrscankbzbank.co/advice/document/${token}`} size={180} />
       </div>
     </div>
     </div>
