@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch("https://qr-app-production-9df5.up.railway.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username: email, password })
       });
 
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -31,48 +31,66 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="h-20 bg-white"></div>
-
-      <div className="bg-blue-800 min-h-[calc(100vh-6rem)] flex items-center justify-center">
-        <div className="bg-white bg-opacity-10 backdrop-blur-md p-10 rounded-2xl shadow-xl w-full max-w-md text-white">
-          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full px-4 py-2 mb-4 rounded-lg bg-white bg-opacity-20 focus:outline-none focus:ring-2 focus:ring-blue-300 placeholder-white"
-          />
-
-          <div className="relative mb-6">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg bg-white bg-opacity-20 focus:outline-none focus:ring-2 focus:ring-blue-300 placeholder-white pr-10"
+    <section className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="max-w-md w-full">
+        <div className="bg-white rounded-xl p-6">
+          <div className="flex justify-center mb-4">
+            <img
+              src="assets/kbzlogo.png"
+              alt="KBZ Logo"
+              className="h-12 rounded"
             />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white text-sm"
-            >
-              {showPassword ? "🙈" : "👁️"} {/* Swap with Heroicons if you prefer */}
-            </button>
           </div>
 
-          <div className="flex justify-center">
-            <button
-              onClick={handleLogin}
-              className="w-24 bg-white text-blue-800 py-2 rounded-lg font-semibold hover:bg-blue-100 transition duration-300"
-            >
-              Login
-            </button>
+          <h3 className="text-2xl font-bold text-center mb-3">Sign In</h3>
+          
+          <div className="flex items-center justify-center my-6">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="mx-4 text-gray-400 text-sm">or login with email</span>
+          <div className="flex-grow border-t border-gray-300"></div>
           </div>
+
+
+          <form onSubmit={handleLogin}>
+            <div className="mb-4">
+              <label className="block text-sm text-gray-600 mb-1">Email</label>
+              <input
+                type="email"
+                required
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-control w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+              />
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm text-gray-600 mb-1">Password</label>
+              <input
+                type="password"
+                required
+                placeholder="Enter Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-control w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                autoComplete="current-password"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Log In
+            </button>
+
+            <div className="text-center text-sm mt-4">
+              {/* Add a link if needed */}
+              {/* <a href="/forgot-password" className="text-blue-600 hover:underline">Forgot password?</a> */}
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
