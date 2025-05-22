@@ -25,11 +25,12 @@ export default function UserView() {
   return (
     // Fixed full-screen blue background (locked)
     <div className="fixed inset-0 bg-[#0057AB] overflow-hidden">
-    <div className="h-full overflow-y-auto p-4">
-    <div
-      className="bg-white w-[600px] max-w-full mx-auto p-6 rounded-xl shadow-lg min-h-[100vh] touch-manipulation"
-      style={{ touchAction: "manipulation" }}
-    >
+      {/* Scrollable white content card */}
+      <div
+        className="h-full overflow-y-auto p-4"
+        style={{ touchAction: "manipulation" }}
+      >
+        <div className="bg-white w-[600px] max-w-full mx-auto p-6 rounded-xl shadow-lg min-h-[100vh]">
           <div className="flex justify-between items-center">
             <img
               src="https://qrscan.kbzbank.co/img/kbzbank.png"
@@ -42,6 +43,7 @@ export default function UserView() {
           </div>
 
           <hr className="border-blue-800 my-3" />
+
           <p className="text-center text-sm font-semibold">
             DETAILS OF THE ISSUING CERTIFICATE
           </p>
@@ -88,7 +90,10 @@ export default function UserView() {
             </p>
             <p>
               Email:{" "}
-              <a href="mailto:customer_service@kbzbank.com" className="text-blue-800">
+              <a
+                href="mailto:customer_service@kbzbank.com"
+                className="text-blue-800"
+              >
                 customer_service@kbzbank.com
               </a>
             </p>
