@@ -25,9 +25,11 @@ export default function UserView() {
   return (
     // Fixed full-screen blue background (locked)
     <div className="fixed inset-0 bg-[#0057AB] overflow-hidden">
-      {/* Only white box scrolls */}
-      <div className="h-full overflow-y-auto p-4">
-        <div className="bg-white w-[600px] max-w-full mx-auto p-6 rounded-xl shadow-lg min-h-[100vh]">
+    <div className="h-full overflow-y-auto p-4">
+    <div
+      className="bg-white w-[600px] max-w-full mx-auto p-6 rounded-xl shadow-lg min-h-[100vh] touch-manipulation"
+      style={{ touchAction: "manipulation" }}
+    >
           <div className="flex justify-between items-center">
             <img
               src="https://qrscan.kbzbank.co/img/kbzbank.png"
