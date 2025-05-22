@@ -9,7 +9,7 @@ export default function UserView() {
 
   useEffect(() => {
     axios
-      .get(https://qr-app-production-9df5.up.railway.app/advice/document/${token})
+      .get(`https://qr-app-production-9df5.up.railway.app/advice/document/${token}`)
       .then((res) => setInfo(res.data))
       .catch((err) => {
         console.error("Error fetching info:", err);
@@ -57,7 +57,7 @@ export default function UserView() {
           <hr className="border-gray-300 my-3" />
           <Row label="Date of Balance:" value={data.dateOfBalance} />
           <hr className="border-gray-300 my-3" />
-          <Row label="Balance in Figures:" value={${data.balance} MMK} />
+          <Row label="Balance in Figures:" value={`${data.balance} MMK`} />
           <hr className="border-gray-300 my-3" />
           <Row label="Balance in Words:" value={data.balanceInWords} />
           <hr className="border-gray-300 my-3" />
